@@ -12,3 +12,10 @@ uvicorn[standard]
 pydantic
 python-multipart
 shortuuid
+
+# JD Processing Dependencies
+PyPDF2
+pytesseract
+Pillow
+opencv-python
+pdf2image
