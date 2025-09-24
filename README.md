@@ -53,17 +53,7 @@ Scoutly is an advanced talent sourcing platform that leverages artificial intell
 - **MongoDB**: User data, job records, authentication, analytics
 - **Vector Database**: Candidate embeddings, similarity search, ML models
 
----
 
-> **📝 Note**: To add your draw.io diagram:
-> 1. Export your draw.io diagram as PNG (high resolution)
-> 2. Upload to `images/architecture-diagram.png` in your repository
-> 3. The diagram will automatically display above
-> 
-> **Alternative locations for the diagram:**
-> - `docs/architecture-diagram.png`
-> - `assets/architecture-diagram.png`
-> - Or update the image path above to match your preferred location
 
 
 ## Key Features
