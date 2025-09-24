@@ -1,4 +1,7 @@
-# Scoutly - Intelligent Talent Sourcing Platform
+# Scoutly
+A multi-agent based intelligent candidate searching and sourcing
+
+# 🎯 Scoutly - Intelligent Talent Sourcing Platform
 
 <div align="center">
 
@@ -14,347 +17,274 @@
 
 </div>
 
-## Overview
+## 🌟 Overview
 
 Scoutly is an advanced talent sourcing platform that leverages artificial intelligence to streamline the recruitment process. It automatically processes job descriptions, generates optimized search prompts, and sources candidates from multiple platforms including LinkedIn and GitHub.
 
+## 🏗️ Architecture Overview - Draw.io Diagram
+
+### Instructions to Generate the Architecture Diagram:
+1. Go to [draw.io](https://app.diagrams.net/) (formerly draw.io)
+2. Create a new blank diagram
+3. Go to File > Import from > Text
+4. Copy and paste the XML code below
+5. The diagram will be automatically generated
+
+### Draw.io XML Code:
+
+```xml
+<mxfile host="app.diagrams.net" modified="2024-01-01T00:00:00.000Z" agent="5.0" etag="xxx" version="22.1.16">
+  <diagram name="Scoutly Architecture" id="scoutly-arch">
+    <mxGraphModel dx="1422" dy="754" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        
+        <!-- Title -->
+        <mxCell id="title" value="Scoutly - Intelligent Talent Sourcing Platform" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=20;fontStyle=1;fontColor=#2E86C1;" vertex="1" parent="1">
+          <mxGeometry x="300" y="20" width="600" height="40" as="geometry" />
+        </mxCell>
+
+        <!-- User Layer -->
+        <mxCell id="user" value="👤 User" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E8F8F5;strokeColor=#148F77;fontSize=14;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="100" width="120" height="60" as="geometry" />
+        </mxCell>
+
+        <!-- Presentation Layer -->
+        <mxCell id="presentation-layer" value="🎨 PRESENTATION LAYER" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#D5E8D4;strokeColor=#82B366;fontSize=16;fontStyle=1;verticalAlign=top;" vertex="1" parent="1">
+          <mxGeometry x="200" y="80" width="280" height="180" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="react-spa" value="React SPA&#xa;Port 5173&#xa;• Modern UI&#xa;• Tailwind CSS&#xa;• Dashboard&#xa;• File Upload" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF2CC;strokeColor=#D6B656;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="220" y="110" width="120" height="80" as="geometry" />
+        </mxCell>
+        
+        <mxCell id="auth-context" value="Auth Context&#xa;• JWT Management&#xa;• Session Handling&#xa;• Protected Routes" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F8CECC;strokeColor=#B85450;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="350" y="110" width="120" height="80" as="geometry" />
+        </mxCell>
+
+        <mxCell id="real-time" value="Real-time Updates&#xa;• Status Monitoring&#xa;• Job Progress&#xa;• Error Handling" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E1D5E7;strokeColor=#9673A6;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="220" y="200" width="120" height="50" as="geometry" />
+        </mxCell>
+
+        <mxCell id="drag-drop" value="Drag & Drop&#xa;• Multi-format&#xa;• PDF/Image/Text" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DAE8FC;strokeColor=#6C8EBF;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="350" y="200" width="120" height="50" as="geometry" />
+        </mxCell>
+
+        <!-- Application Services -->
+        <mxCell id="app-services" value="🔐 APPLICATION SERVICES" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#E1D5E7;strokeColor=#9673A6;fontSize=16;fontStyle=1;verticalAlign=top;" vertex="1" parent="1">
+          <mxGeometry x="520" y="80" width="280" height="180" as="geometry" />
+        </mxCell>
+
+        <mxCell id="express-backend" value="Express.js Backend&#xa;Port 5000&#xa;• Authentication&#xa;• API Gateway&#xa;• JWT Tokens&#xa;• CORS Config" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F8CECC;strokeColor=#B85450;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="540" y="110" width="120" height="80" as="geometry" />
+        </mxCell>
+
+        <mxCell id="fastapi-service" value="FastAPI AI Service&#xa;Port 8000&#xa;• AI Orchestration&#xa;• Processing Pipeline&#xa;• Async Jobs&#xa;• API Docs" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF2CC;strokeColor=#D6B656;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="670" y="110" width="120" height="80" as="geometry" />
+        </mxCell>
+
+        <mxCell id="middleware" value="Middleware Layer&#xa;• Rate Limiting&#xa;• Error Handling&#xa;• Request Validation" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DAE8FC;strokeColor=#6C8EBF;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="540" y="200" width="250" height="50" as="geometry" />
+        </mxCell>
+
+        <!-- AI Processing Pipeline -->
+        <mxCell id="ai-pipeline" value="🤖 AI PROCESSING PIPELINE" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#FFF2CC;strokeColor=#D6B656;fontSize=16;fontStyle=1;verticalAlign=top;" vertex="1" parent="1">
+          <mxGeometry x="200" y="300" width="600" height="120" as="geometry" />
+        </mxCell>
+
+        <!-- AI Agents Flow -->
+        <mxCell id="jd-processor" value="JD Processor&#xa;• Multi-format&#xa;• OCR Integration" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E8F8F5;strokeColor=#148F77;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="220" y="330" width="80" height="60" as="geometry" />
+        </mxCell>
+
+        <mxCell id="jd-parser" value="JD Parser&#xa;• Text Extract&#xa;• Requirements" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E8F8F5;strokeColor=#148F77;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="310" y="330" width="80" height="60" as="geometry" />
+        </mxCell>
+
+        <mxCell id="prompt-gen" value="Prompt Gen&#xa;• LLM Powered&#xa;• Query Optimization" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E8F8F5;strokeColor=#148F77;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="400" y="330" width="80" height="60" as="geometry" />
+        </mxCell>
+
+        <mxCell id="search-agents" value="Search Agents&#xa;• Multi-platform&#xa;• Real-time" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E8F8F5;strokeColor=#148F77;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="490" y="330" width="80" height="60" as="geometry" />
+        </mxCell>
+
+        <mxCell id="candidate-sourcer" value="Candidate&#xa;Sourcer&#xa;• LinkedIn&#xa;• GitHub" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E8F8F5;strokeColor=#148F77;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="580" y="330" width="80" height="60" as="geometry" />
+        </mxCell>
+
+        <mxCell id="profile-ranker" value="Profile Ranker&#xa;• AI Scoring&#xa;• ML Models" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E8F8F5;strokeColor=#148F77;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="670" y="330" width="80" height="60" as="geometry" />
+        </mxCell>
+
+        <!-- External Integrations -->
+        <mxCell id="external-integrations" value="🌐 EXTERNAL INTEGRATIONS" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#DAE8FC;strokeColor=#6C8EBF;fontSize=16;fontStyle=1;verticalAlign=top;" vertex="1" parent="1">
+          <mxGeometry x="200" y="460" width="600" height="120" as="geometry" />
+        </mxCell>
+
+        <mxCell id="ai-services" value="AI Services&#xa;• Groq LLM&#xa;• Tesseract OCR&#xa;• Poppler PDF" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#F8CECC;strokeColor=#B85450;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="220" y="490" width="110" height="70" as="geometry" />
+        </mxCell>
+
+        <mxCell id="search-apis" value="Search APIs&#xa;• Serper API&#xa;• LinkedIn API&#xa;• GitHub API" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#D5E8D4;strokeColor=#82B366;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="350" y="490" width="110" height="70" as="geometry" />
+        </mxCell>
+
+        <mxCell id="security-analytics" value="Security & Analytics&#xa;• Rate Limiting&#xa;• Monitoring&#xa;• Performance" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E1D5E7;strokeColor=#9673A6;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="480" y="490" width="110" height="70" as="geometry" />
+        </mxCell>
+
+        <mxCell id="auth-security" value="Authentication&#xa;• JWT Tokens&#xa;• bcrypt Hash&#xa;• Session Mgmt" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFF2CC;strokeColor=#D6B656;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="610" y="490" width="110" height="70" as="geometry" />
+        </mxCell>
+
+        <!-- Data Persistence -->
+        <mxCell id="data-persistence" value="💾 DATA PERSISTENCE" style="rounded=0;whiteSpace=wrap;html=1;fillColor=#F8CECC;strokeColor=#B85450;fontSize=16;fontStyle=1;verticalAlign=top;" vertex="1" parent="1">
+          <mxGeometry x="200" y="620" width="600" height="120" as="geometry" />
+        </mxCell>
+
+        <mxCell id="mongodb" value="MongoDB&#xa;• User Data&#xa;• Job Records&#xa;• Authentication&#xa;• Analytics" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E8F8F5;strokeColor=#148F77;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="250" y="650" width="150" height="70" as="geometry" />
+        </mxCell>
+
+        <mxCell id="vector-db" value="Vector Database&#xa;• Candidate Embeddings&#xa;• Similarity Search&#xa;• ML Models&#xa;• Efficient Retrieval" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#DAE8FC;strokeColor=#6C8EBF;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="450" y="650" width="150" height="70" as="geometry" />
+        </mxCell>
+
+        <mxCell id="caching" value="Caching Layer&#xa;• Processed JDs&#xa;• Search Results&#xa;• Performance" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#E1D5E7;strokeColor=#9673A6;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="620" y="650" width="150" height="70" as="geometry" />
+        </mxCell>
+
+        <!-- Performance Metrics Box -->
+        <mxCell id="performance-box" value="⚡ PERFORMANCE METRICS&#xa;• Async Processing&#xa;• Real-time Updates&#xa;• Error Recovery&#xa;• Rate Limiting&#xa;• Health Monitoring" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFCE9F;strokeColor=#D79B00;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="850" y="300" width="200" height="120" as="geometry" />
+        </mxCell>
+
+        <mxCell id="tech-stack" value="🛠️ TECHNOLOGY STACK&#xa;Frontend: React 18, Tailwind&#xa;Backend: Express.js, MongoDB&#xa;AI: FastAPI, Groq, Tesseract&#xa;APIs: Serper, LinkedIn, GitHub&#xa;Security: JWT, bcrypt, CORS" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#FFCE9F;strokeColor=#D79B00;fontSize=12;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="850" y="450" width="200" height="140" as="geometry" />
+        </mxCell>
+
+        <!-- Arrows for flow -->
+        <mxCell id="user-to-react" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;fillColor=#dae8fc;strokeColor=#6c8ebf;" edge="1" parent="1" source="user" target="react-spa">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <mxCell id="react-to-express" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;fillColor=#f8cecc;strokeColor=#b85450;" edge="1" parent="1" source="react-spa" target="express-backend">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <mxCell id="express-to-fastapi" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;fillColor=#fff2cc;strokeColor=#d6b656;" edge="1" parent="1" source="express-backend" target="fastapi-service">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <mxCell id="flow-arrow1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;fillColor=#e1d5e7;strokeColor=#9673a6;" edge="1" parent="1" source="jd-processor" target="jd-parser">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <mxCell id="flow-arrow2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;fillColor=#e1d5e7;strokeColor=#9673a6;" edge="1" parent="1" source="jd-parser" target="prompt-gen">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <mxCell id="flow-arrow3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;fillColor=#e1d5e7;strokeColor=#9673a6;" edge="1" parent="1" source="prompt-gen" target="search-agents">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <mxCell id="flow-arrow4" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;fillColor=#e1d5e7;strokeColor=#9673a6;" edge="1" parent="1" source="search-agents" target="candidate-sourcer">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <mxCell id="flow-arrow5" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=2;fillColor=#e1d5e7;strokeColor=#9673a6;" edge="1" parent="1" source="candidate-sourcer" target="profile-ranker">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Connections to external services -->
+        <mxCell id="ai-to-external" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=1;fillColor=#dae8fc;strokeColor=#6c8ebf;dashed=1;" edge="1" parent="1" source="fastapi-service" target="ai-services">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="730" y="200" as="sourcePoint" />
+            <mxPoint x="275" y="490" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <mxCell id="search-to-apis" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=1;fillColor=#d5e8d4;strokeColor=#82b366;dashed=1;" edge="1" parent="1" source="search-agents" target="search-apis">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Connections to database -->
+        <mxCell id="backend-to-mongo" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=1;fillColor=#f8cecc;strokeColor=#b85450;dashed=1;" edge="1" parent="1" source="express-backend" target="mongodb">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="600" y="260" as="sourcePoint" />
+            <mxPoint x="325" y="650" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+        <mxCell id="ranker-to-vector" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;strokeWidth=1;fillColor=#dae8fc;strokeColor=#6c8ebf;dashed=1;" edge="1" parent="1" source="profile-ranker" target="vector-db">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
+```
+
+### Alternative Text-Based Representation:
+
+```
+                    Scoutly - Intelligent Talent Sourcing Platform
+                                    
+👤 User → 🎨 PRESENTATION LAYER → 🔐 APPLICATION SERVICES
+          │                       │
+          ├─ React SPA (5173)     ├─ Express.js Backend (5000)
+          ├─ Auth Context         └─ FastAPI AI Service (8000)
+          ├─ Real-time Updates            │
+          └─ Drag & Drop                  ▼
+                                  
+          🤖 AI PROCESSING PIPELINE
+          ┌─────────────────────────────────────────────────────────┐
+          │ JD Processor → JD Parser → Prompt Gen → Search Agents   │
+          │                                             │           │
+          │ Profile Ranker ← Candidate Sourcer ←────────┘           │
+          └─────────────────────────────────────────────────────────┘
+                                    ▼
+          🌐 EXTERNAL INTEGRATIONS
+          ├─ AI Services (Groq, Tesseract, Poppler)
+          ├─ Search APIs (Serper, LinkedIn, GitHub)
+          ├─ Security & Analytics
+          └─ Authentication & JWT
+                                    ▼
+          💾 DATA PERSISTENCE
+          ├─ MongoDB (User Data, Jobs, Auth)
+          ├─ Vector Database (Embeddings, ML)
+          └─ Caching Layer (Performance)
+```
+
+### How to Use This Diagram:
+
+1. **Copy the XML code** from above
+2. **Go to [draw.io](https://app.diagrams.net/)**
+3. **Create a new diagram**
+4. **Go to File → Import from → Text**
+5. **Paste the XML code**
+6. **The diagram will be generated automatically**
+
+You can then:
+- **Export as PNG/SVG** for your README
+- **Edit and customize** colors, shapes, and text
+- **Add or remove components** as needed
+- **Save and share** the diagram
+
+### Adding to Your README:
+
+Once you've generated and exported the diagram as an image, replace this section with:
+
+```markdown
 ### Architecture Overview
 
 <div align="center">
 
-![Scoutly Architecture](https://github.com/parimal1009/Scoutly/blob/main/images/architecture-diagram.png?raw=true)
+![Scoutly Architecture](./images/architecture-diagram.png)
 
 *Comprehensive Multi-Agent AI Architecture for Intelligent Talent Sourcing*
-
-</div>
-
-#### 🎯 **Architecture Components:**
-
-**🎨 Presentation Layer**
-- **React SPA** (Port 5173) - Modern UI with Tailwind CSS
-- **Auth Context** - JWT token management and session handling
-- **Dashboard** - Real-time job processing and status monitoring
-- **File Upload** - Multi-format drag & drop interface
-
-**🔐 Application Services**
-- **Express.js Backend** (Port 5000) - Authentication & API gateway
-- **FastAPI AI Service** (Port 8000) - AI orchestration & processing pipeline
-
-**🤖 AI Processing Pipeline**
-- **JD Processor** → **JD Parser** → **Prompt Generator** → **Search Agents**
-- **Profile Ranker** ← **Candidate Sourcer** ← **Data Processor** ← **Job Manager**
-
-**🌐 External Integrations**
-- **AI Services**: Groq LLM, Tesseract OCR, Poppler PDF
-- **Search APIs**: Serper, LinkedIn, GitHub
-- **Security & Analytics**: Rate limiting, monitoring, performance tracking
-
-**💾 Data Persistence**
-- **MongoDB**: User data, job records, authentication, analytics
-- **Vector Database**: Candidate embeddings, similarity search, ML models
-
-
-
-
-## Key Features
-
-### AI-Powered Processing
-- **Multi-format JD Processing**: Supports text, PDF, and image job descriptions
-- **OCR Integration**: Advanced text extraction from images using Tesseract
-- **LLM-Powered Prompt Generation**: Creates optimized search queries using Groq API
-- **Intelligent Parsing**: Extracts key requirements, skills, and qualifications
-
-### Advanced Sourcing
-- **Multi-platform Search**: LinkedIn, GitHub, and web search integration
-- **Real-time Processing**: Background job processing with status monitoring
-- **Profile Ranking**: AI-powered candidate scoring and ranking
-- **Vector Database**: Efficient storage and retrieval of candidate profiles
-
-### Security & Authentication
-- **JWT-based Authentication**: Secure user sessions with 7-day expiry
-- **Password Encryption**: bcrypt hashing for secure password storage
-- **Protected Routes**: Middleware-based route protection
-- **CORS Configuration**: Secure cross-origin resource sharing
-
-### Modern UI/UX
-- **Responsive Design**: Tailwind CSS for mobile-first design
-- **Real-time Updates**: Live status monitoring and job progress
-- **Drag & Drop**: Intuitive file upload interface
-- **Error Handling**: Comprehensive error states and user feedback
-
-## Quick Start
-
-### Prerequisites
-- Node.js 16+
-- Python 3.8+
-- MongoDB (local or Atlas)
-- Git
-
-### Installation
-
-1. **Clone the repository**
-```bash
-git clone https://github.com/parimal1009/Scoutly.git
-cd Scoutly
-```
-
-2. **Setup AI Service**
-```bash
-cd ai_service
-python -m venv venv
-venv\Scripts\activate  # Windows
-pip install -r requirements.txt
-cp .env.example .env
-# Configure your API keys in .env
-```
-
-3. **Setup Backend**
-```bash
-cd ../Backend
-npm install
-cp .env.example .env
-# Configure MongoDB URI and JWT secret
-```
-
-4. **Setup Frontend**
-```bash
-cd ../Frontend
-npm install
-```
-
-5. **Start all services**
-```bash
-# Terminal 1 - AI Service
-cd ai_service && venv\Scripts\activate && uvicorn main:app --reload --port 8000
-
-# Terminal 2 - Backend
-cd Backend && npm run dev
-
-# Terminal 3 - Frontend
-cd Frontend && npm run dev
-```
-
-6. **Access the application**
-- Frontend: http://localhost:5173
-- Backend API: http://localhost:5000
-- AI Service: http://localhost:8000/docs
-
-## API Keys Required
-
-| Service | Purpose | Get API Key |
-|---------|---------|-------------|
-| Groq API | LLM Processing | [console.groq.com](https://console.groq.com/) |
-| Serper API | Web Search | [serper.dev](https://serper.dev/) |
-| GitHub Token | Repository Search | [GitHub Settings](https://github.com/settings/tokens) |
-
-## API Endpoints
-
-### Authentication (Port 5000)
-- `POST /api/auth/register` - User registration
-- `POST /api/auth/login` - User login
-- `GET /api/auth/me` - Get current user
-
-### Job Processing (Port 8000)
-- `POST /process-jd` - Process text job description
-- `POST /process-jd-file` - Process PDF/image files
-- `POST /jd-to-sourcing` - Create sourcing job from JD
-- `GET /jd-system-info` - System capabilities check
-
-### Sourcing Management (Port 8000)
-- `POST /sourcing-jobs` - Create sourcing job
-- `GET /sourcing-jobs` - List all jobs
-- `GET /sourcing-jobs/{id}` - Get job details
-- `GET /sourcing-jobs/{id}/results` - Get results
-
-## Testing & Validation
-
-### System Integration Tests
-
-<div align="center">
-
-**Dashboard Overview & Job Processing**
-![Dashboard Test](https://github.com/parimal1009/Scoutly/blob/parimal/images/WhatsApp%20Image%202025-09-24%20at%2009.55.41_ee6c2a0d.jpg?raw=true)
-
-**File Upload & Processing Validation**
-![File Processing](https://github.com/parimal1009/Scoutly/blob/parimal/images/2.jpg?raw=true)
-
-**Sourcing Jobs & Results Management**
-![Sourcing Results](https://github.com/parimal1009/Scoutly/blob/parimal/images/3.jpg?raw=true)
-
-</div>
-
-### Test Scenarios
-1. **Authentication Flow**: Registration, login, and protected route access
-2. **JD Processing**: Text, PDF, and image job description processing
-3. **Prompt Generation**: LLM-powered search query optimization
-4. **Sourcing Pipeline**: End-to-end candidate discovery and ranking
-5. **Real-time Updates**: Job status monitoring and result display
-
-## Project Structure
-
-```
-Scoutly/
-├── ai_service/              # FastAPI AI Service (Port 8000)
-│   ├── agents/                 # AI Processing Agents
-│   │   ├── jd_processor.py     # Main JD processing orchestrator
-│   │   ├── jd_parser.py        # Multi-format JD parsing
-│   │   ├── prompt_generator.py # LLM-powered prompt creation
-│   │   ├── linkedin_sourcer.py # LinkedIn candidate sourcing
-│   │   ├── github_scraper.py   # GitHub developer sourcing
-│   │   └── profile_ranker.py   # AI-powered candidate ranking
-│   ├── utils/                  # Utilities
-│   │   └── database.py         # MongoDB connection
-│   ├── main.py                 # FastAPI application
-│   └── requirements.txt        # Python dependencies
-│
-├── Backend/                 # Express.js Backend (Port 5000)
-│   ├── app.js                  # Express server with auth
-│   ├── package.json            # Node.js dependencies
-│   └── .env.example            # Environment template
-│
-├── Frontend/                # React Frontend (Port 5173)
-│   ├── src/
-│   │   ├── pages/              # Application pages
-│   │   │   ├── Login.jsx       # Login page
-│   │   │   ├── Signup.jsx      # Registration page
-│   │   │   └── Dashboard.jsx   # Main dashboard
-│   │   ├── context/            # React contexts
-│   │   │   └── AuthContext.jsx # Authentication context
-│   │   └── components/         # Reusable components
-│   ├── package.json            # React dependencies
-│   └── index.html              # Entry point
-│
-├── Documentation/
-│   ├── README.md               # This file
-│   ├── RUN_GUIDE.md           # Detailed setup guide
-│   ├── SETUP_GUIDE.md         # Installation instructions
-│   └── WORKFLOW_DIAGRAM.md    # Technical workflows
-│
-└── images/                 # Testing & validation screenshots
-```
-
-## Team & Contributions
-
-| Team Member | Role | Contributions |
-|-------------|------|---------------|
-| **Parimal** | AI/Backend Lead | JD processing agents, FastAPI integration, MongoDB setup |
-| **Rutu** | AI/Sourcing | GitHub scraper, profile ranking, FastAPI endpoints |
-| **Moksh** | Data/Vector DB | Vector database integration, data pipeline |
-| **Mihir** | Frontend Lead | React UI, authentication, dashboard components |
-
-## Technology Stack
-
-### Frontend
-- **React 18** - Modern UI library
-- **Tailwind CSS** - Utility-first styling
-- **Axios** - HTTP client
-- **React Router** - Navigation
-
-### Backend
-- **Express.js** - Web framework
-- **MongoDB** - Document database
-- **JWT** - Authentication tokens
-- **bcrypt** - Password hashing
-
-### AI Service
-- **FastAPI** - High-performance API framework
-- **Groq API** - Large language model
-- **Tesseract OCR** - Image text extraction
-- **PyPDF2** - PDF processing
-- **OpenCV** - Image processing
-
-### External APIs
-- **Serper API** - Web search
-- **GitHub API** - Repository search
-- **LinkedIn API** - Professional network
-
-## Performance & Scalability
-
-- **Async Processing**: Background job processing for sourcing tasks
-- **Caching**: Intelligent caching of processed job descriptions
-- **Rate Limiting**: API rate limiting for external service calls
-- **Error Handling**: Comprehensive error recovery and fallback mechanisms
-- **Monitoring**: Real-time system status and health checks
-
-## Development & Deployment
-
-### Development Mode
-```bash
-# Start all services in development mode
-npm run dev:all  # Custom script for concurrent development
-```
-
-### Production Deployment
-```bash
-# Build frontend
-cd Frontend && npm run build
-
-# Start production services
-cd ai_service && uvicorn main:app --host 0.0.0.0 --port 8000
-cd Backend && npm start
-```
-
-### Docker Support (Coming Soon)
-```yaml
-# docker-compose.yml for containerized deployment
-version: '3.8'
-services:
-  frontend:
-    build: ./Frontend
-    ports: ["5173:5173"]
-  backend:
-    build: ./Backend
-    ports: ["5000:5000"]
-  ai-service:
-    build: ./ai_service
-    ports: ["8000:8000"]
-```
-
-## Troubleshooting
-
-### Common Issues
-
-1. **Port Conflicts**
-   ```bash
-   netstat -ano | findstr :8000
-   taskkill /PID <PID> /F
-   ```
-
-2. **MongoDB Connection**
-   - Ensure MongoDB is running
-   - Check connection string in `.env`
-   - Verify network connectivity
-
-3. **API Key Issues**
-   - Verify all API keys are correctly set
-   - Check API key permissions and quotas
-   - Test API connectivity
-
-4. **OCR/PDF Processing**
-   - Install Tesseract OCR
-   - Install Poppler utilities
-   - Update system PATH variables
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## Acknowledgments
-
-- **Groq** for providing high-performance LLM API
-- **Serper** for web search capabilities
-- **GitHub** for developer data access
-- **MongoDB** for flexible document storage
-- **FastAPI** for excellent API framework
-
----
-
-<div align="center">
-
-**Ready to revolutionize your talent sourcing?**
-
-[Get Started](http://localhost:5173) | [API Docs](http://localhost:8000/docs) | [Report Issues](https://github.com/parimal1009/Scoutly/issues)
-
-Made with ❤️ by the Scoutly Team
 
 </div>
