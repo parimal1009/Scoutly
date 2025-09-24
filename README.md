@@ -20,6 +20,7 @@ Scoutly is an advanced talent sourcing platform that leverages artificial intell
 
 ### 🏗️ Architecture Overview
 
+![Scoutly Screenshot](https://github.com/parimal1009/Scoutly/blob/parimal/images/Screenshot%202025-09-24%20134157.png?raw=true)
 
 
 ### 🔄 Workflow Diagram
