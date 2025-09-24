@@ -65,7 +65,73 @@ Scoutly is an advanced talent sourcing platform that leverages artificial intell
 > - `assets/architecture-diagram.png`
 > - Or update the image path above to match your preferred location
 
+### Workflow Diagram
 
+```
+┌───────────────────────────────────────────────────────────────────────────────────────────────────────────┐
+│                        🚀 SCOUTLY WORKFLOW PROCESS                             │
+└───────────────────────────────────────────────────────────────────────────────────────────────────────────┘
+
+👤 USER                🎨 FRONTEND           🔐 BACKEND           🤖 AI SERVICE
+  │                        │                     │                     │
+  │ 1. Register/Login       │                     │                     │
+  ├────────────────────────►│                     │                     │
+  │                        │ 2. Auth Request     │                     │
+  │                        ├────────────────────►│                     │
+  │                        │                     │ 3. Validate User    │
+  │                        │                     ├─────────────────────┤
+  │                        │                     │     MongoDB         │
+  │                        │ 4. JWT Token        │◄────────────────────┤
+  │                        │◄────────────────────┤                     │
+  │ 5. Access Granted      │                     │                     │
+  │◄───────────────────────┤                     │                     │
+  │                        │                     │                     │
+  │ 6. Upload/Paste JD     │                     │                     │
+  ├────────────────────────►│                     │                     │
+  │                        │ 7. Process JD       │                     │
+  │                        ├─────────────────────┼────────────────────►│
+  │                        │                     │                     │ 8. Parse JD
+  │                        │                     │                     ├─────────────┐
+  │                        │                     │                     │  • OCR/PDF  │
+  │                        │                     │                     │  • Extract  │
+  │                        │                     │                     │◄────────────┘
+  │                        │                     │                     │
+  │                        │                     │                     │ 9. Generate
+  │                        │                     │                     ├─────────────┐
+  │                        │                     │                     │  Groq LLM   │
+  │                        │                     │                     │  Prompts    │
+  │                        │                     │                     │◄────────────┘
+  │                        │ 10. Processed JD    │                     │
+  │                        │◄────────────────────┼─────────────────────┤
+  │ 11. View Results       │                     │                     │
+  │◄───────────────────────┤                     │                     │
+  │                        │                     │                     │
+  │ 12. Create Sourcing    │                     │                     │
+  ├────────────────────────►│                     │                     │
+  │                        │ 13. Start Sourcing  │                     │
+  │                        ├─────────────────────┼────────────────────►│
+  │                        │                     │                     │ 14. Search
+  │                        │                     │                     ├─────────────┐
+  │                        │                     │                     │ • LinkedIn  │
+  │                        │                     │                     │ • GitHub    │
+  │                        │                     │                     │ • Web APIs  │
+  │                        │                     │                     │◄────────────┘
+  │                        │                     │                     │
+  │                        │                     │                     │ 15. Store
+  │                        │                     │                     ├─────────────┐
+  │                        │                     │                     │  Results    │
+  │                        │                     │                     │  MongoDB    │
+  │                        │                     │                     │◄────────────┘
+  │                        │ 16. Job Updates     │                     │
+  │                        │◄────────────────────┼─────────────────────┤
+  │ 17. Live Results       │                     │                     │
+  │◄───────────────────────┤                     │                     │
+
+┌───────────────────────────────────────────────────────────────────────────────────────────────────────────┐
+│  🎯 KEY FEATURES: Real-time Processing • Multi-format Support • AI Ranking     │
+│  🔒 SECURITY: JWT Auth • bcrypt Hashing • CORS Protection • Rate Limiting      │
+│  ⚡ PERFORMANCE: Async Processing • Caching • Vector Search • Background Jobs  │
+└───────────────────────────────────────────────────────────────────────────────────────────────────────────┘
 ```
 
 ## Key Features
