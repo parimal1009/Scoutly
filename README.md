@@ -20,217 +20,52 @@ Scoutly is an advanced talent sourcing platform that leverages artificial intell
 
 ### Architecture Overview
 
-```
-╔═══════════════════════════════════════════════════════════════════════════════════════════════════════════╗
-║                                    🎯 SCOUTLY - INTELLIGENT TALENT SOURCING PLATFORM                     ║
-║                                          Multi-Agent AI Architecture                                      ║
-╚═══════════════════════════════════════════════════════════════════════════════════════════════════════════╝
+<div align="center">
 
-┌───────────────────────────────────────────────────────────────────────────────────────────────────────────┐
-│                                         🎨 PRESENTATION LAYER                                             │
-├───────────────────────────────────────────────────────────────────────────────────────────────────────────┤
-│                                                                                                           │
-│  ┌─────────────────────┐    ┌─────────────────────┐    ┌─────────────────────┐    ┌─────────────────────┐ │
-│  │    🖥️ React SPA     │    │   🔐 Auth Context   │    │   📊 Dashboard      │    │   📁 File Upload    │ │
-│  │                     │    │                     │    │                     │    │                     │ │
-│  │ • Modern UI/UX      │◄──►│ • JWT Management    │◄──►│ • Job Processing    │◄──►│ • Drag & Drop       │ │
-│  │ • Responsive Design │    │ • Session Handling  │    │ • Real-time Status  │    │ • Multi-format      │ │
-│  │ • Tailwind CSS      │    │ • Protected Routes  │    │ • Result Display    │    │ • PDF/Image/Text    │ │
-│  │ • Port: 5173        │    │ • Auto Refresh      │    │ • Job Management    │    │ • Progress Tracking │ │
-│  └─────────────────────┘    └─────────────────────┘    └─────────────────────┘    └─────────────────────┘ │
-│                                                                                                           │
-└───────────────────────────────────────────────────────────────────────────────────────────────────────────┘
-                                                    │
-                                                    ▼
-┌───────────────────────────────────────────────────────────────────────────────────────────────────────────┐
-│                                        🔐 APPLICATION SERVICES                                           │
-├───────────────────────────────────────────────────────────────────────────────────────────────────────────┤
-│                                                                                                           │
-│  ┌─────────────────────────────────────┐                    ┌─────────────────────────────────────┐      │
-│  │         🚀 Express.js Backend       │                    │         🤖 FastAPI AI Service       │      │
-│  │                                     │                    │                                     │      │
-│  │  ┌─────────────────────────────────┐│                    │┌─────────────────────────────────┐  │      │
-│  │  │        Authentication           ││                    ││        AI Orchestration         │  │      │
-│  │  │  • User Registration            ││                    ││  • Job Processing Pipeline      │  │      │
-│  │  │  • JWT Token Generation         ││                    ││  • Agent Coordination           │  │      │
-│  │  │  • Password Hashing (bcrypt)    ││                    ││  • Async Task Management        │  │      │
-│  │  │  • Session Management           ││                    ││  • Error Handling & Retry       │  │      │
-│  │  └─────────────────────────────────┘│                    │└─────────────────────────────────┘  │      │
-│  │                                     │                    │                                     │      │
-│  │  ┌─────────────────────────────────┐│                    │┌─────────────────────────────────┐  │      │
-│  │  │        API Gateway              ││                    ││        RESTful Endpoints        │  │      │
-│  │  │  • CORS Configuration           ││                    ││  • OpenAPI Documentation        │  │      │
-│  │  │  • Rate Limiting                ││                    ││  • Request Validation           │  │      │
-│  │  │  • Request Logging              ││                    ││  • Response Formatting          │  │      │
-│  │  │  • Health Checks                ││                    ││  • Background Job Status        │  │      │
-│  │  └─────────────────────────────────┘│                    │└─────────────────────────────────┘  │      │
-│  │                                     │                    │                                     │      │
-│  │         Port: 5000                  │                    │         Port: 8000                  │      │
-│  └─────────────────────────────────────┘                    └─────────────────────────────────────┘      │
-│                                                                                                           │
-└───────────────────────────────────────────────────────────────────────────────────────────────────────────┘
-                                                    │
-                                                    ▼
-┌───────────────────────────────────────────────────────────────────────────────────────────────────────────┐
-│                                      🤖 AI PROCESSING PIPELINE                                           │
-├───────────────────────────────────────────────────────────────────────────────────────────────────────────┤
-│                                                                                                           │
-│  ┌─────────────────────┐    ┌─────────────────────┐    ┌─────────────────────┐    ┌─────────────────────┐ │
-│  │   📋 JD Processor   │───►│    📄 JD Parser     │───►│  🧠 Prompt Generator │───►│  🔍 Search Agents   │ │
-│  │                     │    │                     │    │                     │    │                     │ │
-│  │ • Workflow Orchestr │    │ • PDF Text Extract  │    │ • LLM Integration   │    │ • Multi-platform    │ │
-│  │ • Quality Validation│    │ • OCR Image Process │    │ • Query Optimization│    │ • Parallel Search   │ │
-│  │ • Error Handling    │    │ • Plain Text Parse  │    │ • Context Analysis  │    │ • Rate Limiting     │ │
-│  │ • Progress Tracking │    │ • Format Detection  │    │ • Prompt Templates  │    │ • Result Aggregation│ │
-│  └─────────────────────┘    └─────────────────────┘    └─────────────────────┘    └─────────────────────┘ │
-│                                                                                                           │
-│  ┌─────────────────────┐    ┌─────────────────────┐    ┌─────────────────────┐    ┌─────────────────────┐ │
-│  │  🎯 Profile Ranker  │◄───│  👥 Candidate       │◄───│  📊 Data Processor  │◄───│  🔄 Job Manager     │ │
-│  │                     │    │     Sourcer         │    │                     │    │                     │ │
-│  │ • AI-Powered Scoring│    │ • LinkedIn Sourcing │    │ • Data Cleaning     │    │ • Job Queue         │ │
-│  │ • ML-based Ranking  │    │ • GitHub Discovery  │    │ • Duplicate Removal │    │ • Status Tracking   │ │
-│  │ • Relevance Analysis│    │ • Web Search        │    │ • Profile Enrichment│    │ • Result Storage    │ │
-│  │ • Quality Filtering │    │ • Real-time Updates │    │ • Similarity Scoring│    │ • Progress Updates  │ │
-│  └─────────────────────┘    └─────────────────────┘    └─────────────────────┘    └─────────────────────┘ │
-│                                                                                                           │
-└───────────────────────────────────────────────────────────────────────────────────────────────────────────┘
-                                                    │
-                                                    ▼
-┌───────────────────────────────────────────────────────────────────────────────────────────────────────────┐
-│                                    🌐 EXTERNAL INTEGRATIONS                                              │
-├───────────────────────────────────────────────────────────────────────────────────────────────────────────┤
-│                                                                                                           │
-│  ┌─────────────────────┐    ┌─────────────────────┐    ┌─────────────────────┐    ┌─────────────────────┐ │
-│  │    🧠 Groq LLM      │    │   🔍 Serper API     │    │   💼 LinkedIn API   │    │   🐙 GitHub API     │ │
-│  │                     │    │                     │    │                     │    │                     │ │
-│  │ • Advanced Language │    │ • Real-time Search  │    │ • Professional Data │    │ • Developer Profiles│ │
-│  │ • Prompt Processing │    │ • Web Scraping      │    │ • Network Analysis  │    │ • Repository Search │ │
-│  │ • Context Analysis  │    │ • SERP Results      │    │ • Skills Extraction │    │ • Contribution Data │ │
-│  │ • Query Optimization│    │ • Multi-source Data │    │ • Experience Mining │    │ • Language Analysis │ │
-│  └─────────────────────┘    └─────────────────────┘    └─────────────────────┘    └─────────────────────┘ │
-│                                                                                                           │
-│  ┌─────────────────────┐    ┌─────────────────────┐    ┌─────────────────────┐    ┌─────────────────────┐ │
-│  │  👁️ Tesseract OCR   │    │   📑 Poppler PDF    │    │   🔒 Security Layer │    │   📈 Analytics      │ │
-│  │                     │    │                     │    │                     │    │                     │ │
-│  │ • Image Recognition │    │ • Document Parsing  │    │ • API Key Management│    │ • Performance Metrics│ │
-│  │ • Multi-language    │    │ • Text Extraction   │    │ • Rate Limiting     │    │ • Usage Statistics  │ │
-│  │ • High Accuracy     │    │ • Metadata Extract  │    │ • Request Validation│    │ • Error Monitoring  │ │
-│  │ • Batch Processing  │    │ • Format Support    │    │ • Data Encryption   │    │ • Success Tracking  │ │
-│  └─────────────────────┘    └─────────────────────┘    └─────────────────────┘    └─────────────────────┘ │
-│                                                                                                           │
-└───────────────────────────────────────────────────────────────────────────────────────────────────────────┘
-                                                    │
-                                                    ▼
-┌───────────────────────────────────────────────────────────────────────────────────────────────────────────┐
-│                                       💾 DATA PERSISTENCE LAYER                                          │
-├───────────────────────────────────────────────────────────────────────────────────────────────────────────┤
-│                                                                                                           │
-│  ┌─────────────────────────────────────┐                    ┌─────────────────────────────────────┐      │
-│  │         🗄️ MongoDB Database         │                    │        🔍 Vector Database           │      │
-│  │                                     │                    │                                     │      │
-│  │  ┌─────────────────────────────────┐│                    │┌─────────────────────────────────┐  │      │
-│  │  │        User Management          ││                    ││      Semantic Search            │  │      │
-│  │  │  • User Profiles & Auth         ││                    ││  • Candidate Embeddings         │  │      │
-│  │  │  • JWT Token Storage            ││                    ││  • Similarity Matching          │  │      │
-│  │  │  • Session Management           ││                    ││  • Vector Indexing              │  │      │
-│  │  │  • Role-based Access            ││                    ││  • Fast Retrieval               │  │      │
-│  │  └─────────────────────────────────┘│                    │└─────────────────────────────────┘  │      │
-│  │                                     │                    │                                     │      │
-│  │  ┌─────────────────────────────────┐│                    │┌─────────────────────────────────┐  │      │
-│  │  │        Job Management           ││                    ││      ML Model Storage           │  │      │
-│  │  │  • Job Descriptions             ││                    ││  • Trained Models               │  │      │
-│  │  │  • Processing Status            ││                    ││  • Feature Vectors              │  │      │
-│  │  │  • Search Results               ││                    ││  • Ranking Algorithms           │  │      │
-│  │  │  • Candidate Profiles           ││                    ││  • Performance Metrics          │  │      │
-│  │  └─────────────────────────────────┘│                    │└─────────────────────────────────┘  │      │
-│  │                                     │                    │                                     │      │
-│  │  ┌─────────────────────────────────┐│                    │┌─────────────────────────────────┐  │      │
-│  │  │        Analytics & Logs         ││                    ││      Cache Management           │  │      │
-│  │  │  • System Performance          ││                    ││  • Query Result Caching         │  │      │
-│  │  │  • User Activity Logs          ││                    ││  • Session Data                 │  │      │
-│  │  │  • Error Tracking               ││                    ││  • Temporary Storage            │  │      │
-│  │  │  • Usage Statistics             ││                    ││  • Performance Optimization     │  │      │
-│  │  └─────────────────────────────────┘│                    │└─────────────────────────────────┘  │      │
-│  │                                     │                    │                                     │      │
-│  └─────────────────────────────────────┘                    └─────────────────────────────────────┘      │
-│                                                                                                           │
-└───────────────────────────────────────────────────────────────────────────────────────────────────────────┘
+![Scoutly Architecture](https://github.com/parimal1009/Scoutly/blob/main/images/architecture-diagram.png?raw=true)
 
-╔═══════════════════════════════════════════════════════════════════════════════════════════════════════════╗
-║  🎯 KEY CAPABILITIES: Real-time Processing • Multi-format Support • AI-Powered Ranking • Scalable Design  ║
-║  🔒 SECURITY FEATURES: JWT Authentication • bcrypt Encryption • CORS Protection • Rate Limiting           ║
-║  ⚡ PERFORMANCE: Async Processing • Intelligent Caching • Vector Search • Background Job Processing       ║
-║  🌐 INTEGRATIONS: LinkedIn • GitHub • Web Search • OCR • PDF Processing • LLM • Vector Database          ║
-╚═══════════════════════════════════════════════════════════════════════════════════════════════════════════╝
-```
+*Comprehensive Multi-Agent AI Architecture for Intelligent Talent Sourcing*
 
-### Workflow Diagram
+</div>
 
-```
-┌───────────────────────────────────────────────────────────────────────────────────────────────────────────┐
-│                        🚀 SCOUTLY WORKFLOW PROCESS                             │
-└───────────────────────────────────────────────────────────────────────────────────────────────────────────┘
+#### 🎯 **Architecture Components:**
 
-👤 USER                🎨 FRONTEND           🔐 BACKEND           🤖 AI SERVICE
-  │                        │                     │                     │
-  │ 1. Register/Login       │                     │                     │
-  ├────────────────────────►│                     │                     │
-  │                        │ 2. Auth Request     │                     │
-  │                        ├────────────────────►│                     │
-  │                        │                     │ 3. Validate User    │
-  │                        │                     ├─────────────────────┤
-  │                        │                     │     MongoDB         │
-  │                        │ 4. JWT Token        │◄────────────────────┤
-  │                        │◄────────────────────┤                     │
-  │ 5. Access Granted      │                     │                     │
-  │◄───────────────────────┤                     │                     │
-  │                        │                     │                     │
-  │ 6. Upload/Paste JD     │                     │                     │
-  ├────────────────────────►│                     │                     │
-  │                        │ 7. Process JD       │                     │
-  │                        ├─────────────────────┼────────────────────►│
-  │                        │                     │                     │ 8. Parse JD
-  │                        │                     │                     ├─────────────┐
-  │                        │                     │                     │  • OCR/PDF  │
-  │                        │                     │                     │  • Extract  │
-  │                        │                     │                     │◄────────────┘
-  │                        │                     │                     │
-  │                        │                     │                     │ 9. Generate
-  │                        │                     │                     ├─────────────┐
-  │                        │                     │                     │  Groq LLM   │
-  │                        │                     │                     │  Prompts    │
-  │                        │                     │                     │◄────────────┘
-  │                        │ 10. Processed JD    │                     │
-  │                        │◄────────────────────┼─────────────────────┤
-  │ 11. View Results       │                     │                     │
-  │◄───────────────────────┤                     │                     │
-  │                        │                     │                     │
-  │ 12. Create Sourcing    │                     │                     │
-  ├────────────────────────►│                     │                     │
-  │                        │ 13. Start Sourcing  │                     │
-  │                        ├─────────────────────┼────────────────────►│
-  │                        │                     │                     │ 14. Search
-  │                        │                     │                     ├─────────────┐
-  │                        │                     │                     │ • LinkedIn  │
-  │                        │                     │                     │ • GitHub    │
-  │                        │                     │                     │ • Web APIs  │
-  │                        │                     │                     │◄────────────┘
-  │                        │                     │                     │
-  │                        │                     │                     │ 15. Store
-  │                        │                     │                     ├─────────────┐
-  │                        │                     │                     │  Results    │
-  │                        │                     │                     │  MongoDB    │
-  │                        │                     │                     │◄────────────┘
-  │                        │ 16. Job Updates     │                     │
-  │                        │◄────────────────────┼─────────────────────┤
-  │ 17. Live Results       │                     │                     │
-  │◄───────────────────────┤                     │                     │
+**🎨 Presentation Layer**
+- **React SPA** (Port 5173) - Modern UI with Tailwind CSS
+- **Auth Context** - JWT token management and session handling
+- **Dashboard** - Real-time job processing and status monitoring
+- **File Upload** - Multi-format drag & drop interface
 
-┌───────────────────────────────────────────────────────────────────────────────────────────────────────────┐
-│  🎯 KEY FEATURES: Real-time Processing • Multi-format Support • AI Ranking     │
-│  🔒 SECURITY: JWT Auth • bcrypt Hashing • CORS Protection • Rate Limiting      │
-│  ⚡ PERFORMANCE: Async Processing • Caching • Vector Search • Background Jobs  │
-└───────────────────────────────────────────────────────────────────────────────────────────────────────────┘
+**🔐 Application Services**
+- **Express.js Backend** (Port 5000) - Authentication & API gateway
+- **FastAPI AI Service** (Port 8000) - AI orchestration & processing pipeline
+
+**🤖 AI Processing Pipeline**
+- **JD Processor** → **JD Parser** → **Prompt Generator** → **Search Agents**
+- **Profile Ranker** ← **Candidate Sourcer** ← **Data Processor** ← **Job Manager**
+
+**🌐 External Integrations**
+- **AI Services**: Groq LLM, Tesseract OCR, Poppler PDF
+- **Search APIs**: Serper, LinkedIn, GitHub
+- **Security & Analytics**: Rate limiting, monitoring, performance tracking
+
+**💾 Data Persistence**
+- **MongoDB**: User data, job records, authentication, analytics
+- **Vector Database**: Candidate embeddings, similarity search, ML models
+
+---
+
+> **📝 Note**: To add your draw.io diagram:
+> 1. Export your draw.io diagram as PNG (high resolution)
+> 2. Upload to `images/architecture-diagram.png` in your repository
+> 3. The diagram will automatically display above
+> 
+> **Alternative locations for the diagram:**
+> - `docs/architecture-diagram.png`
+> - `assets/architecture-diagram.png`
+> - Or update the image path above to match your preferred location
+
+
 ```
 
 ## Key Features
